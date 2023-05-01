@@ -34,6 +34,8 @@ public class TelaPrincipalController implements Initializable {
     @FXML
     private TableColumn<Computador, String> colNome;
     @FXML
+    private TableColumn<Computador, String> colMemoria;
+    @FXML
     private TableColumn<Computador, String> colProcessador;
 
     @Override
@@ -46,9 +48,16 @@ public class TelaPrincipalController implements Initializable {
 
         colAlocado.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().isLocado() ? "SIM" : "NÃO"));
         colNome.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getNome()));
+        colMemoria.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getMemoria()));
         colProcessador.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getProcessador()));
 
+
+        carregarPlanilha();
+    }
+
+    private void carregarPlanilha() {
         try {
+            tbComputadores.getItems().clear();
             tbComputadores.getItems().addAll(planilha.carregar());
         } catch (InventarioException e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, e.getMessage(), ButtonType.YES);
@@ -60,6 +69,7 @@ public class TelaPrincipalController implements Initializable {
 
     private void botaoExportar() {
         planilha.salvar(tbComputadores.getItems());
+        carregarPlanilha();
     }
 
     private void botaoAdicionar() {

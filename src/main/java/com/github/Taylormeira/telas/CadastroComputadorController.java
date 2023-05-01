@@ -21,6 +21,8 @@ public class CadastroComputadorController implements Initializable {
     private TextField tfNome;
     @FXML
     private TextField tfProcessador;
+    @FXML
+    private TextField tfMemoria;
     @Getter
     private Computador computador = null;
 
@@ -35,7 +37,9 @@ public class CadastroComputadorController implements Initializable {
 
         computador.setNome(tfNome.getText());
         computador.setProcessador(tfProcessador.getText());
+        computador.setMemoria(tfMemoria.getText());
         computador.setLocado(cbxAlocado.isSelected());
+
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION, computador.toString(), ButtonType.YES);
         alert.setTitle("Aviso");
@@ -56,6 +60,7 @@ public class CadastroComputadorController implements Initializable {
     public void carregar(Computador computador) {
         tfNome.setText(computador.getNome());
         tfProcessador.setText(computador.getProcessador());
+        tfMemoria.setText(computador.getMemoria());
         cbxAlocado.setSelected(computador.isLocado());
     }
 }
