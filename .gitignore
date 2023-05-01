@@ -1,3 +1,6 @@
+# arquivos
+*.xlsx
+
 # Compiled class file
 *.class
 
@@ -29,10 +32,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
+.idea
 *.iws
 *.iml
 *.ipr
