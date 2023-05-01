@@ -3,7 +3,9 @@ package com.github.Taylormeira.telas;
 import com.github.Taylormeira.models.Computador;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.Getter;
 
@@ -41,14 +43,8 @@ public class CadastroComputadorController implements Initializable {
         computador.setLocado(cbxAlocado.isSelected());
 
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, computador.toString(), ButtonType.YES);
-        alert.setTitle("Aviso");
-        alert.setHeaderText("Computador salvo com sucesso!");
-        alert.showAndWait();
+        Mensagem.sucesso("Computador salvo com sucesso!");
 
-//        if (alert.getResult() == ButtonType.YES) {
-//
-//        }
         botaoSair();
     }
 

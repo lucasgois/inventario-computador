@@ -8,7 +8,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -51,7 +53,6 @@ public class TelaPrincipalController implements Initializable {
         colMemoria.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getMemoria()));
         colProcessador.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getProcessador()));
 
-
         carregarPlanilha();
     }
 
@@ -60,10 +61,7 @@ public class TelaPrincipalController implements Initializable {
             tbComputadores.getItems().clear();
             tbComputadores.getItems().addAll(planilha.carregar());
         } catch (InventarioException e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, e.getMessage(), ButtonType.YES);
-            alert.setTitle("Erro");
-            alert.setHeaderText("Erro ao carregar planilha.");
-            alert.showAndWait();
+            Mensagem.erro("Erro ao carregar planilha", e);
         }
     }
 
@@ -73,7 +71,6 @@ public class TelaPrincipalController implements Initializable {
     }
 
     private void botaoAdicionar() {
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/telas/cadastro_computador.fxml"));
 
@@ -91,7 +88,7 @@ public class TelaPrincipalController implements Initializable {
             }
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            Mensagem.erro("Erro ao cadastrar", e);
         }
     }
 
@@ -99,12 +96,12 @@ public class TelaPrincipalController implements Initializable {
         int index = tbComputadores.getSelectionModel().getSelectedIndex();
 
         if (index >= 0) {
-
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/telas/cadastro_computador.fxml"));
 
                 Stage cadastro = new Stage();
                 cadastro.setScene(new Scene(loader.load()));
+
                 cadastro.setTitle("Alterar computador");
 
                 CadastroComputadorController controller = loader.getController();
@@ -119,7 +116,7 @@ public class TelaPrincipalController implements Initializable {
                 }
 
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                Mensagem.erro("Erro ao alterar", e);
             }
         }
     }
