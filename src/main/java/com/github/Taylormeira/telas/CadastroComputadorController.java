@@ -42,7 +42,6 @@ public class CadastroComputadorController implements Initializable {
         computador.setMemoria(tfMemoria.getText());
         computador.setLocado(cbxAlocado.isSelected());
 
-
         Mensagem.sucesso("Computador salvo com sucesso!");
 
         botaoSair();
