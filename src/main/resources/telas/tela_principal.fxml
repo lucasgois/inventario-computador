@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane hgap="5.0" prefHeight="400.0" prefWidth="600.0" vgap="5.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.Taylormeira.telas.TelaPrincipalController">
+<GridPane hgap="5.0" prefHeight="406.0" prefWidth="815.0" vgap="5.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.Taylormeira.telas.TelaPrincipalController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
         <ColumnConstraints minWidth="10.0" />
@@ -29,6 +29,9 @@
             <TableColumn fx:id="colNome" prefWidth="75.0" text="Nome" />
             <TableColumn fx:id="colProcessador" prefWidth="89.5999755859375" text="Processador" />
          <TableColumn fx:id="colMemoria" prefWidth="123.199951171875" text="Memoria" />
+         <TableColumn fx:id="colHd" prefWidth="58.39996337890625" text="HD" />
+         <TableColumn fx:id="colSetor" prefWidth="115.9998779296875" text="Setor" />
+         <TableColumn fx:id="colObs" prefWidth="246.4000244140625" text="Observacao"  />
         </columns>
     </TableView>
     <Button fx:id="btnSair" mnemonicParsing="false" text="Sair" GridPane.rowIndex="1" />
