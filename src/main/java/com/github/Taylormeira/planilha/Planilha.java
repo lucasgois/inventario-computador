@@ -68,7 +68,16 @@ public class Planilha {
             Cell cellProcessador = cells.getCell(2);
             computador.setProcessador(cellProcessador.toString());
 
-            Cell cellLocado = cells.getCell(3);
+            Cell cellHd = cells.getCell(3);
+            computador.setHd(cellHd.toString());
+
+            Cell cellSetor = cells.getCell(4);
+            computador.setSetor(cellSetor.toString());
+
+            Cell cellObservacao = cells.getCell(5);
+            computador.setObservacao(cellObservacao.toString());
+
+            Cell cellLocado = cells.getCell(6);
             computador.setLocado(cellLocado.getBooleanCellValue());
 
             computadores.add(computador);
@@ -92,11 +101,23 @@ public class Planilha {
 
                 Cell cellNome = cabecalho.createCell(0);
                 cellNome.setCellValue("Nome");
+
                 Cell cellMemoria = cabecalho.createCell(1);
                 cellMemoria.setCellValue("Memoria");
+
                 Cell cellProcessador = cabecalho.createCell(2);
                 cellProcessador.setCellValue("Processador");
-                Cell cellLocado = cabecalho.createCell(3);
+
+                Cell cellHd = cabecalho.createCell(3);
+                cellHd.setCellValue("Hd");
+
+                Cell cellSetor = cabecalho.createCell(4);
+                cellSetor.setCellValue("Setor");
+
+                Cell cellObservacao = cabecalho.createCell(5);
+                cellObservacao.setCellValue("Observação");
+
+                Cell cellLocado = cabecalho.createCell(6);
                 cellLocado.setCellValue("locado");
             }
 
@@ -114,11 +135,23 @@ public class Planilha {
                 //Setando as informações nas celulas
                 Cell cellNome = row.createCell(0);
                 cellNome.setCellValue(computador.getNome());
+
                 Cell cellMemoria = row.createCell(1);
                 cellMemoria.setCellValue(computador.getMemoria());
+
                 Cell cellProcessador = row.createCell(2);
                 cellProcessador.setCellValue(computador.getProcessador());
-                Cell cellLocado = row.createCell(3);
+
+                Cell cellHd = row.createCell(3);
+                cellHd.setCellValue(computador.getHd());
+
+                Cell cellSetor = row.createCell(4);
+                cellSetor.setCellValue(computador.getSetor());
+
+                Cell cellObservacao = row.createCell(5);
+                cellObservacao.setCellValue(computador.getObservacao());
+
+                Cell cellLocado = row.createCell(6);
                 cellLocado.setCellValue(computador.isLocado());
             }
 

@@ -38,6 +38,12 @@ public class TelaPrincipalController implements Initializable {
     @FXML
     private TableColumn<Computador, String> colMemoria;
     @FXML
+    private TableColumn<Computador, String> colObs;
+    @FXML
+    private TableColumn<Computador, String> colHd;
+    @FXML
+    private TableColumn<Computador, String> colSetor;
+    @FXML
     private TableColumn<Computador, String> colProcessador;
 
     @Override
@@ -51,6 +57,9 @@ public class TelaPrincipalController implements Initializable {
         colAlocado.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().isLocado() ? "SIM" : "NÃO"));
         colNome.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getNome()));
         colMemoria.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getMemoria()));
+        colObs.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getObservacao()));
+        colHd.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getHd()));
+        colSetor.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getSetor()));
         colProcessador.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getProcessador()));
 
         carregarPlanilha();

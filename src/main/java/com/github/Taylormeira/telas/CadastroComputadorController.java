@@ -25,6 +25,12 @@ public class CadastroComputadorController implements Initializable {
     private TextField tfProcessador;
     @FXML
     private TextField tfMemoria;
+    @FXML
+    private TextField tfObs;
+    @FXML
+    private TextField tfHd;
+    @FXML
+    private TextField tfSetor;
     @Getter
     private Computador computador = null;
 
@@ -40,6 +46,9 @@ public class CadastroComputadorController implements Initializable {
         computador.setNome(tfNome.getText());
         computador.setProcessador(tfProcessador.getText());
         computador.setMemoria(tfMemoria.getText());
+        computador.setObservacao(tfObs.getText());
+        computador.setHd(tfHd.getText());
+        computador.setSetor(tfSetor.getText());
         computador.setLocado(cbxAlocado.isSelected());
 
         Mensagem.sucesso("Computador salvo com sucesso!");
@@ -56,6 +65,9 @@ public class CadastroComputadorController implements Initializable {
         tfNome.setText(computador.getNome());
         tfProcessador.setText(computador.getProcessador());
         tfMemoria.setText(computador.getMemoria());
+        tfObs.setText(computador.getObservacao());
+        tfHd.setText(computador.getHd());
+        tfSetor.setText(computador.getSetor());
         cbxAlocado.setSelected(computador.isLocado());
     }
 }
