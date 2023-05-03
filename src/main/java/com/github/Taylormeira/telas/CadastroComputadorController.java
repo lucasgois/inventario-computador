@@ -60,7 +60,6 @@ public class CadastroComputadorController implements Initializable {
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
         stage.close();
     }
-
     public void carregar(Computador computador) {
         tfNome.setText(computador.getNome());
         tfProcessador.setText(computador.getProcessador());
